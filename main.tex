@@ -1,0 +1,128 @@
+\documentclass[12pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[toc,page]{appendix}
+\usepackage[margin=1.2in]{geometry}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\setlength{\topmargin}{0in}
+\center
+ 
+ 
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\hspace*{-0.5cm}
+\includegraphics[scale=0.14]{imperial.png}\\
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} \large
+\hspace*{2cm}
+\end{flushright}
+\end{minipage}\\[1cm]
+
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\Large Department of Computing}\\[0.5cm]
+\textsc{\large MEng Individual Project Interim Report}\\[0.5cm]
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{ \huge \bfseries Multi-Theory First-Order Solver for Program Analysis and Verification}\\[0.4cm]
+\HRule \\[1cm]
+ 
+%----------------------------------------------------------------------------------------
+%	AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+Eric Wenhao \textsc{Ruan Zhu}
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.5\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+Prof. Philippa \textsc{Gardner} \\[0.5cm]
+\end{flushright}
+\end{minipage}\\[1cm]
+
+%----------------------------------------------------------------------------------------
+%	DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large \today}\\[0.5cm]
+
+\vfill
+
+\end{titlepage}
+
+
+\section{Introduction}
+
+
+\section{Background}
+
+\subsection{Program Verification and SMT Solvers}
+\begin{itemize}
+    \item SMT solvers are tools that decides the satisfiability of logical formulas under some theories.
+\end{itemize}
+
+\subsubsection{Dafny}
+\begin{itemize}
+    \item Dafny: An Automatic Program Verifier for Functional Correctness
+    \item Developing Verified Programs with Dafny
+\end{itemize}
+
+\subsubsection{JaVerT}
+
+\subsubsection{Verifast}
+
+\subsection{Z3}
+\begin{itemize}
+    \item Z3 is a state-of-the-art SMT solver from Microsoft Research that integrates a host of theory solvers in an expressive and efficient combination and is targeted at solving problems in software verification and software analysis.
+    \item Z3 does not support inductive reasoning, hence no proof by induction on inductive data types.
+    \item Z3 is not a decision procedure when dealing with non-linear arithmetic.
+    \item Some applications of Z3
+\end{itemize}
+
+\subsection{E-matching}
+\begin{itemize}
+    \item Pattern-based quantifier instantiation is a technique used to deal with universal quantifiers in theorem provers, where a pattern (trigger) is specified for a universally quantified formula and its subformula is instantiated whenever we encounter a ground term that matches the specified pattern.
+    \item An undesirable situation when applying this technique is the risk of running into a matching loop, when the resulting formula after the instantiation also matches the original pattern and hence instantiating again.
+    \item E-matching is the matching problem where ground terms are considered up to congruence and pattern matching takes place modulo ground equalities.
+    \item Computing with an SMT solver: this paper devises a technique to avoid matching loops in Dafny's SMT encoding by providing curbing in the formulas in the means of `fuel', allowing pattern matching instantiation only when when the `fuel' parameter is not null. However, in some cases, we would want to unfold all the instantiations, particularly those where the parameters are known to be some literal. In these scenarios, we evaluate on these literals.
+    \item Trigger Selection Strategies to Stabilise Program Verifiers: this paper discusses three core techniques (quantifies splitting, trigger sharing, matching loop detection) which moves the trigger selection routine from the SMT solver to the high-level verifier.
+    \item E-matching for Fun and Profit
+    \item Programming with Triggers
+\end{itemize}
+
+\subsection{Theory axiomatisation}
+\begin{itemize}
+    \item Sets with Cardinality Constraints in Satisfiability Modulo Theories
+    \item MUNCH - Automated Reasoner for Sets and Multisets
+\end{itemize}
+
+
+\section{Project Plan}
+
+
+\section{Evaluation Plan}
+
+
+\end{document}
